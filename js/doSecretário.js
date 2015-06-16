@@ -79,6 +79,7 @@ function doSecretário (url) {
       }
     }
 
+    this.dom.barra.append($("<div class=\"clear\"></div>"));
     this.dom.calendario.append($("<div class=\"clear\"></div>"));
   }
 
@@ -94,9 +95,7 @@ function doSecretário (url) {
 
     this.criaDOM_dias();
 
-    $(document.body).append(
-      $("<div class=\"rodape\">"+"Viva Higão!"+"</div>")
-    );
+    //$(document.body).append($("<div class=\"rodape\">"+""+"</div>"));
     $(document.body).append($("<div class=\"info\"><div class=\"info-texto\"></div></div>"));
     $(document.body).append($("<div class=\"fechar\"></div>"));
   }
@@ -112,10 +111,20 @@ function doSecretário (url) {
       var horario = this.horarios[h];
 
       while (horario.overflown()) {
-        this.dom.calendario.height(this.dom.calendario.height()+25);
+        this.dom.calendario.height(this.dom.calendario.height()+24);
         this.recalculaAlturas();
       }
     }
+
+    this.dom.calendario.height(this.dom.calendario.height()+48);
+
+    var h = $(window).height()-$(".nome").height()-$(".barra").height()-40;
+
+    if (this.dom.calendario.height() < h) {
+        this.dom.calendario.height(h);
+    }
+
+    this.recalculaAlturas();
 
     console.info ("doSecretário altura final de "+this.dom.calendario.height()+"px");
   }
