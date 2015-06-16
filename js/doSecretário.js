@@ -31,7 +31,7 @@ function doSecretário (url) {
       var nome = horario[1];
 
       nome = nome.replace (/#\{([^#]*)\|([^#]*)\}/g, function (a, b, c) {
-        return "<br><span onclick=\"showInfoFor('"+c+"')\" class=\"atividade\">"+"# "+b+"</span>";
+        return "<br><span onclick=\"showInfoFor('"+c+"')\" class=\"atividade\">"+""+b+"</span>";
       });
 
       var dom = $("<div class=\"horario\">"+nome+"</div>");
@@ -95,7 +95,7 @@ function doSecretário (url) {
     this.criaDOM_dias();
 
     $(document.body).append(
-      $("<div class=\"rodape\">"+""+"</div>")
+      $("<div class=\"rodape\">"+"Viva Higão!"+"</div>")
     );
     $(document.body).append($("<div class=\"info\"><div class=\"info-texto\"></div></div>"));
     $(document.body).append($("<div class=\"fechar\"></div>"));
