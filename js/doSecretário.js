@@ -52,13 +52,15 @@ function doSecretário (url) {
       var dom = $("<div class=\"horario\">"+nome+"</div>");
 
       var date = new Date();
-      var minutes = date.getHours()*60+date.getMinutes()-7*60;
+      var minutes = date.getHours()*60+date.getMinutes()-6*60;
 
       if (minutes > 6*60)
         minutes -= 60;
 
-      domDia.append(dom);
+      if (minutes > 7*60+30)
+        minutes -= 25;
 
+      domDia.append(dom);
 
       if ((Math.floor(minutes/50) <= horario_atual &&
            Math.floor(minutes/50) > horario_antigo) && selecionado) {
