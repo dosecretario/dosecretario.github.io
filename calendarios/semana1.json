@@ -19,7 +19,7 @@
     [1, "Sociologia"],
     [1, "Gestão Operacional"],
     [2, "Química"],
-    [2, "S.O. em Redes #{Atividade|Nada.}"]
+    [2, "S.O. em Redes #{Atividade|<p>Atividade que ele passou na sala, entrega para os grupos que não entregaram no dia.</p>}"]
   ],
   "Quinta": [
     [2, "S.O. em Redes"],
@@ -27,7 +27,7 @@
     [2, "Biologia"],
     [1, "Química"],
     [2, "Biologia"],
-    [3, "Engenharia de Software #{Atividade|Nada.} #{Trabalho Avaliativo|Nada.}"]
+    [3, "Engenharia de Software #{Atividade|<h3>Exercícios sobre Processos de Desenvolvimento de Software</h3><p>Nove questões sobre o RUP, está no acadêmico.</p>} #{Trabalho Avaliativo|Ele vai passar na sala. É para estudar <b>todos</b> os assuntos. Em grupo de <em>3</em>.}"]
   ],
   "Sexta": [
     [6, ""],
