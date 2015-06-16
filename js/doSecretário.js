@@ -52,18 +52,52 @@ function doSecretário (url) {
       var dom = $("<div class=\"horario\">"+nome+"</div>");
 
       var date = new Date();
-      var minutes = date.getHours()*60+date.getMinutes()-6*60;
+      var minutes = date.getHours()*60+date.getMinutes();
+      var hnum = 0;
 
-      if (minutes > 6*60)
-        minutes -= 60;
+      if (minutes >= 420 && minutes < 465) {
+        hnum = 1;
+      } else
+      if (minutes >= 465 && minutes < 510) {
+        hnum = 2;
+      } else
+      if (minutes >= 530 && minutes < 575) {
+        hnum = 3;
+      } else
+      if (minutes >= 575 && minutes < 620) {
+        hnum = 4;
+      } else
+      if (minutes >= 625 && minutes < 670) {
+        hnum = 5;
+      } else
+      if (minutes >= 670 && minutes < 715) {
+        hnum = 6;
+      } else
+      if (minutes >= 780 && minutes < 825) {
+        hnum = 7;
+      } else
+      if (minutes >= 825 && minutes < 870) {
+        hnum = 8;
+      } else
+      if (minutes >= 890 && minutes < 925) {
+        hnum = 9;
+      } else
+      if (minutes >= 925 && minutes < 980) {
+        hnum = 10;
+      } else
+      if (minutes >= 985 && minutes < 1030) {
+        hnum = 11;
+      } else
+      if (minutes >= 1030 && minutes < 1075) {
+        hnum = 12;
+      }
 
-      if (minutes > 7*60+30)
-        minutes -= 25;
+      //Notification.requestPermission();
 
       domDia.append(dom);
 
-      if ((Math.floor(minutes/50) <= horario_atual &&
-           Math.floor(minutes/50) > horario_antigo) && selecionado) {
+      if ((hnum <= horario_atual &&
+          hnum > horario_antigo) && selecionado) {
         dom.css("background", "#ccf");
         dom.css("box-shadow", "0 0 2px 0 black inset");
       }
@@ -191,12 +225,62 @@ function doSecretário (url) {
     });
   }
 
+  this.hnum = 0;
   this.construct = function () {
     console.info("doSecretário iniciando...");
 
     this.baixaCalendario(this.urlCalendario);
 
     $(window).resize($.proxy (this.semOverflow, this));
+
+    setInterval ($.proxy(function () {
+      var date = new Date();
+      var minutes = date.getHours()*60+date.getMinutes();
+      var hnum = -1;
+
+      if (minutes >= 420 && minutes < 465) {
+        hnum = 1;
+      } else
+      if (minutes >= 465 && minutes < 510) {
+        hnum = 2;
+      } else
+      if (minutes >= 530 && minutes < 575) {
+        hnum = 3;
+      } else
+      if (minutes >= 575 && minutes < 620) {
+        hnum = 4;
+      } else
+      if (minutes >= 625 && minutes < 670) {
+        hnum = 5;
+      } else
+      if (minutes >= 670 && minutes < 715) {
+        hnum = 6;
+      } else
+      if (minutes >= 780 && minutes < 825) {
+        hnum = 7;
+      } else
+      if (minutes >= 825 && minutes < 870) {
+        hnum = 8;
+      } else
+      if (minutes >= 890 && minutes < 925) {
+        hnum = 9;
+      } else
+      if (minutes >= 925 && minutes < 980) {
+        hnum = 10;
+      } else
+      if (minutes >= 985 && minutes < 1030) {
+        hnum = 11;
+      } else
+      if (minutes >= 1030 && minutes < 1075) {
+        hnum = 12;
+      }
+
+      //if (this.hnum != hnum)
+      //  new Notification("hnum:" + hnum);
+
+      this.hnum = hnum;
+
+    }, this), 1000);
   }
 
   this.construct();
